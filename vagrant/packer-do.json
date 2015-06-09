@@ -1,0 +1,29 @@
+{
+  "builders": [
+    {
+      "type": "digitalocean",
+      "droplet_name": "docker-host",
+      "api_token": "YOUR-API_TOKEN",
+      "image": "ubuntu-14-04-x64",
+      "region": "nyc3",
+      "size": "1GB"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["apt-get update"]
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": [
+        "vagrant/cookbooks",
+        "vagrant/chef/applications"
+      ],
+      "roles_path": "vagrant/chef/roles",
+      "run_list": [
+        "role[docker]"
+      ]
+    }
+  ]
+}

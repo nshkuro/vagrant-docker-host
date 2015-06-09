@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'https://supermarket.getchef.com/api/v1'
+
+cookbook 'apt', '~> 2.7.0'
+
+cookbook 'build-essential', '~> 2.2.3'
+
+cookbook 'docker', '~> 0.37.0'
+
+cookbook 'git', '~> 4.2.2'
